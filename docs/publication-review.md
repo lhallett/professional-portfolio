@@ -7,7 +7,7 @@ The build check scans generated text for common token/private-key patterns, mach
 Before publication, resolve:
 
 - Target roles, approved résumé, experience/accomplishments, LinkedIn, GitHub, and preferred contact address.
-- An explicit license decision for the newly authored material. The owner authorized GitHub publication and deployment on 2026-09-23; source will be public at `lukehallett-devlabs/professional-portfolio`.
+- An explicit license decision for the newly authored material. The owner authorized GitHub publication and deployment on 2026-09-23; the selected repository is `lhallett/professional-portfolio`, with explicit public-visibility confirmation still pending.
 - Matching clean source commit for GitHub links; remove `noindex` only when approved content is complete.
 - Custom-domain DNS configuration. GitHub Pages deployment is authorized; the initial draft can use the project URL while DNS is connected.
 - Current Thermostat source review before extracting authentication or making claims about current deployments.

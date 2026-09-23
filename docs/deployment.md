@@ -1,6 +1,6 @@
 # Deployment and iteration
 
-The portfolio uses GitHub Pages, independently of home infrastructure. The public source repository is `lukehallett-devlabs/professional-portfolio`.
+The portfolio uses GitHub Pages, independently of home infrastructure. The selected source repository is `lhallett/professional-portfolio`; creation and deployment are pending account access and public-visibility confirmation.
 
 ## Normal iteration
 
@@ -15,9 +15,9 @@ The site currently retains `noindex, nofollow` for the career-content draft. The
 
 ## Custom domain
 
-Intended domain: `luke.hallettdevlabs.com`. DNS is hosted at Cloudflare. The initial project URL is `https://lukehallett-devlabs.github.io/professional-portfolio/`.
+Intended domain: `luke.hallettdevlabs.com`. DNS is hosted at Cloudflare. The initial project URL is `https://lhallett.github.io/professional-portfolio/`.
 
-To connect the intended domain, first add it in repository Settings → Pages. Then create a DNS-only CNAME for `luke` pointing to `lukehallett-devlabs.github.io`. Do not include the repository name in the CNAME target. Enable Enforce HTTPS after GitHub provisions the certificate, and rerun the workflow so links use the new root path. Do not replace an existing DNS record without reviewing its owner/purpose.
+To connect the intended domain, first add it in repository Settings → Pages. Then create a DNS-only CNAME for `luke` pointing to `lhallett.github.io`. Do not include the repository name in the CNAME target. Enable Enforce HTTPS after GitHub provisions the certificate, and rerun the workflow so links use the new root path. Do not replace an existing DNS record without reviewing its owner/purpose.
 
 GitHub Actions deployments use the Pages setting/API for the domain; a CNAME source file is not required. See [GitHub's custom-domain guidance](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
 
