@@ -1,0 +1,13 @@
+---
+import { sitePath } from '../../lib/links';
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+const entries = await getCollection('library');
+---
+<Layout title="Engineering Library">
+  <section class="page-heading"><p class="eyebrow">Notes you can build with</p><h1>Engineering <em>Library.</em></h1><p class="intro">The problem, the tradeoffs, and a working example.<br />A small collection of decisions made explicit.</p></section>
+  <div class="chapter-bar"><span>01 entry / Mobile experiences</span><span>Curated, independently runnable examples</span></div>
+  <section class="section library-list" aria-label="Library entries">{entries.map(entry => <a class="feature-card" href={sitePath(`/library/${entry.id}/`)}><div class="card-meta"><span>{entry.data.category}</span><span class="badge">{entry.data.maturity}</span></div><h2>{entry.data.title}</h2><p>{entry.data.description}</p><div class="card-bottom"><span>{entry.data.tags.join(' · ')}</span><span aria-hidden="true">↗</span></div></a>)}</section>
+  <section class="section"><p class="eyebrow">On the reading list</p><h2>Next questions to explore.</h2><div class="roadmap"><article><h3>Thermostat authentication</h3><p>Reconcile the passkey design with current enforcement before extracting an example.</p></article><article><h3>FMBP authentication</h3><p>Review the invitation exchange and separate local implementation from deployed behavior.</p></article><article><h3>Different needs, different choices</h3><p>Compare authentication constraints once both source reviews are complete.</p></article></div><p class="muted">These are planned entries, not published implementations.</p></section>
+  <section class="section maturity"><h2>What the labels mean</h2><dl><dt>Exploration</dt><dd>A question or design under investigation.</dd><dt>Working Example</dt><dd>An independently runnable example with verification.</dd><dt>Used in an Application</dt><dd>The example’s approach has implementation evidence in a named application.</dd><dt>Archived</dt><dd>Retained for context; no longer maintained.</dd></dl><p class="muted">Example maturity and source application status are recorded separately. A passing example does not establish production readiness.</p></section>
+</Layout>

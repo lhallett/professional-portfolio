@@ -1,0 +1,31 @@
+---
+import { sitePath } from '../lib/links';
+import Layout from '../layouts/Layout.astro';
+import { profile } from '../data/profile';
+---
+<Layout>
+  <section class="hero">
+    <div>
+      <p class="eyebrow"><span class="dot"></span> A professional profile & an engineering notebook</p>
+      <h1>Thoughtful systems.<br /><em>Practical engineering.</em></h1>
+      <p class="intro">I’m Luke Hallett. This is a place for my work, the decisions behind it, and useful examples to build on.</p>
+      {profile.positioning ? <p>{profile.positioning}</p> : <p class="draft-note">Profile in progress · Role focus and professional introduction awaiting résumé.</p>}
+      <div class="actions"><a class="button primary" href={sitePath('/library/')}>Explore the library <span aria-hidden="true">↗</span></a><a class="text-link" href="#experience">Professional background <span aria-hidden="true">↓</span></a></div>
+    </div>
+    <aside class="notebook" aria-label="Inside this portfolio">
+      <div class="notebook-top"><span class="eyebrow">From idea to implementation</span><span aria-hidden="true">↗</span></div>
+      <div class="sketch"><div class="sketch-node">Understand the problem</div><span class="connector" aria-hidden="true">↓</span><div class="sketch-node accent">Make the tradeoffs explicit</div><span class="connector" aria-hidden="true">↓</span><div class="sketch-node">Build a working example</div></div>
+      <div class="notebook-bottom"><span class="dot"></span> Explanations connected to runnable code</div>
+    </aside>
+  </section>
+  <div class="chapter-bar"><span>01 / Engineering Library</span><span>Decisions worth keeping</span></div>
+  <section class="section feature-grid">
+    <div><p class="eyebrow">Beyond the finished interface</p><h2>The how.<br />And the why.</h2><p class="muted">Small, focused references that connect a real application decision to an understandable example.</p><a class="text-link" href={sitePath('/library/')}>View the engineering library →</a></div>
+    <a class="feature-card" href={sitePath('/library/thermostat-mobile/')}><div class="card-meta"><span>Mobile experiences</span><span class="badge">Working Example</span></div><div class="mini-flow" aria-hidden="true"><span>Browser</span><i>→</i><span>Network</span><i>↘</i><span>Saved reading</span></div><h3>A mobile experience that tells you when data is old.</h3><p>Thermostat’s PWA model, offline boundaries, and a runnable example of fresh versus saved readings.</p><div class="card-bottom"><span>Thermostat · PWA · Offline UX</span><span aria-hidden="true">↗</span></div></a>
+  </section>
+  <div class="chapter-bar"><span>02 / Selected projects</span><span>Application context lives in Atlas</span></div>
+  <section class="section projects"><div><h2>Connected work.</h2><p class="muted">The library explains reusable ideas. Atlas is the destination for application discovery and the deployed-system showcase.</p></div><article class="project"><span class="index">01</span><div><h3>Thermostat</h3><p>Monitoring interfaces, a mobile PWA, and explicit offline states.</p><a href={sitePath('/library/thermostat-mobile/')}>Read the mobile model →</a><br /><a href="https://atlas.hallettdevlabs.com/applications/thermostat/">Thermostat in Atlas ↗</a></div></article><article class="project"><span class="index">02</span><div><h3>Atlas</h3><p>Explore application context in the separate showcase.</p><a href="https://atlas.hallettdevlabs.com">Visit Atlas ↗</a></div></article></section>
+  <div class="chapter-bar" id="experience"><span>03 / Professional background</span><span>Career material pending</span></div>
+  <section class="section experience"><div><h2>Experience & impact.</h2><p class="muted">Selected experience, accomplishments, and career context will appear here after review of the source résumé.</p></div><div class="placeholder"><span class="eyebrow">Content placeholder</span><h3>Professional experience</h3><p>Employer, role, dates, responsibilities, and verified outcomes to be supplied.</p>{profile.resume ? <a class="button" href={sitePath(profile.resume)} download>Download résumé ↓</a> : <span class="pending">Résumé download · awaiting source document</span>}</div></section>
+  <section class="contact section" id="contact"><div><p class="eyebrow">Start a conversation</p><h2>Let’s connect.</h2><p>For professional conversations and questions about the work.</p></div><div class="contact-links">{profile.email ? <a href={`mailto:${profile.email}`}>Email ↗</a> : <span>Email <small>Awaiting preferred address</small></span>}{profile.linkedin ? <a href={profile.linkedin}>LinkedIn ↗</a> : <span>LinkedIn <small>Awaiting profile URL</small></span>}{profile.github ? <a href={profile.github}>GitHub ↗</a> : <span>GitHub <small>Awaiting profile URL</small></span>}</div></section>
+</Layout>

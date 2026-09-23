@@ -1,0 +1,46 @@
+---
+import { sitePath } from '../lib/links';
+import '../styles/global.css';
+interface Props { title?: string; description?: string; }
+const { title = 'Luke Hallett', description = 'Professional profile and engineering library. Design decisions, working examples, and the reasoning behind them.' } = Astro.props;
+const library = Astro.url.pathname.startsWith(sitePath('/library'));
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title === 'Luke Hallett' ? title : `${title} · Luke Hallett`}</title>
+    <meta name="description" content={description} /><meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#f6f5f0" />
+    <link rel="icon" href={sitePath('/favicon.svg')} type="image/svg+xml" />
+    <script is:inline>
+      try { document.documentElement.dataset.theme = localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch {}
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="shell header">
+      <a class="brand" href={sitePath('/')} aria-label="Luke Hallett home"><span class="monogram" aria-hidden="true">lh.</span><span>Luke Hallett</span></a>
+      <nav aria-label="Main navigation">
+        <a href={sitePath('/')} aria-current={!library && Astro.url.pathname === sitePath('/') ? 'page' : undefined}>Overview</a>
+        <a href={sitePath('/library/')} aria-current={library ? 'page' : undefined}>Engineering Library</a>
+        <a href={sitePath('/#contact')}>Contact</a>
+        <button id="theme" aria-label="Switch color theme" title="Switch color theme" hidden>◐</button>
+      </nav>
+    </header>
+    <main id="main" class="shell"><slot /></main>
+    <footer class="shell footer"><span>Luke Hallett <span class="muted">/ Professional portfolio</span></span><span>Built to be useful. Kept intentionally simple.</span><a href="https://atlas.hallettdevlabs.com">Explore Atlas ↗</a></footer>
+    <script>
+      const button = document.querySelector<HTMLButtonElement>('#theme');
+      if (button) {
+        button.hidden = false;
+        button.addEventListener('click', () => {
+          const current = document.documentElement.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          const next = current === 'dark' ? 'light' : 'dark';
+          document.documentElement.dataset.theme = next;
+          try { localStorage.setItem('theme', next); } catch {}
+        });
+      }
+    </script>
+  </body>
+</html>
