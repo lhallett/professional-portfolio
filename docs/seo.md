@@ -2,9 +2,9 @@
 
 ## Current policy
 
-The owner approved the sanitized public profile while explicitly retaining noindex. Indexing requires separate approval. Pages render `noindex, follow`; the 404 always remains noindex. The sitemap intentionally contains no URLs while indexing is disabled. Crawling stays allowed so engines can see noindex. Public availability and search indexing are separate.
+The owner approved search indexing on 2026-09-24. Main-branch deployments render `index, follow, max-image-preview:large`; the 404 remains noindex. The sitemap includes the homepage, library, and published library articles. Crawling is allowed and robots.txt advertises the sitemap.
 
-When the owner authorizes indexing, set the repository Actions variable `PORTFOLIO_INDEXING` to `true` and rerun the deployment workflow. Do not change it simply to test a build. Future entries come from the same content collection as the sitemap, which excludes the 404 and downloadable source files. The source downloads are public artifacts; the site's noindex is not a privacy control for repository content or downloads.
+The deployment workflow enables indexing on main by default. Set the repository Actions variable `PORTFOLIO_INDEXING` to `false` and redeploy to pause indexing. Pull-request builds and default local builds remain noindex. For local production-policy verification, run `PORTFOLIO_INDEXING=true npm run verify`. The sitemap excludes the 404 and downloadable source files. Public availability and indexing are separate; noindex is not a privacy control.
 
 The initial GitHub project URL serves robots.txt under `/professional-portfolio/`; search engines consult `/robots.txt` at the origin root, so that project-scoped file is not an effective root crawler policy. Page-level noindex applies independently. Once the custom domain is connected, the generated robots.txt is at the correct root. No root-domain settings for other GitHub projects were changed.
 
@@ -12,13 +12,13 @@ The initial GitHub project URL serves robots.txt under `/professional-portfolio/
 
 `site/src/components/Metadata.astro` renders unique titles/descriptions, absolute canonical URLs, Open Graph tags, a square portrait sharing image, X/Twitter summary cards, author attribution, and JSON-LD. Deployment origin/base come from Pages configuration. Query parameters never enter canonical URLs. The approved portrait is optimized at build time, with explicit dimensions and descriptive alt text.
 
-The structured graph identifies Luke Hallett, his confirmed GitHub profile, the website, profile homepage, library collection, article authorship, and breadcrumbs. The article uses `TechArticle` and its review date lives on its WebPage node. It does not invent employment, qualifications, publication dates, or imply that an illustrative example is production-proven. The source photo was supplied by the owner; the AI crop preview was approved before being integrated. `site/src/assets/luke-hallett.png` is the approved image; preview outputs stay ignored.
+The structured graph identifies Luke Hallett, his confirmed GitHub, LinkedIn, Facebook, and Instagram profiles, the website, profile homepage, library collection, article authorship, and breadcrumbs. The article uses `TechArticle` and its review date lives on its WebPage node. It does not invent employment, qualifications, publication dates, or imply that an illustrative example is production-proven. The source photo was supplied by the owner; the AI crop preview was approved before being integrated. `site/src/assets/luke-hallett.png` is the approved image; preview outputs stay ignored.
 
 ## AEO approach
 
 Use readable server-rendered content, descriptive headings, short explanations, explicit authorship, original-source provenance, and clearly labeled maturity. Structured data mirrors visible content. No fabricated FAQ, keyword stuffing, artificial authority metrics, or promised rankings. `llms.txt` is not required for Google’s AI search experiences and is not added as a substitute for accessible content.
 
-This metadata supports understanding and eligibility, not guaranteed indexing, citations, or rich results. The draft's noindex intentionally prevents search/AI-search eligibility until enabled.
+This metadata supports understanding and eligibility, not guaranteed indexing, citations, or rich results.
 
 ## Validation and next steps
 

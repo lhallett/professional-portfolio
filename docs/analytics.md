@@ -10,7 +10,7 @@ The owner supplied GA4 Measurement ID `G-D99PMKBL00` for this portfolio. It is a
 - Google signals and ad personalization signals are disabled. Cookies are scoped to the portfolio hostname.
 - The tag otherwise uses GA4's standard collection behavior, including browser/page information and analytics cookies. Enhanced measurement depends on the web stream's settings in Google Analytics; this code does not modify account settings.
 - No custom user IDs, form values, contact information, or application data are sent by custom code. URL parameters are not stripped, preserving campaign attribution; never put sensitive data in public URLs.
-- Search indexing remains controlled separately by `PORTFOLIO_INDEXING` and stays disabled for the current draft.
+- Search indexing remains controlled separately by `PORTFOLIO_INDEXING` and is enabled for the approved public site.
 
 ## Verification
 

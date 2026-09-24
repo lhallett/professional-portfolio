@@ -35,7 +35,7 @@ export const profile = {
     "Engineering standards, technical leadership, and customer problem-solving"
   ],
   resume: null as string | null,
-  linkedin: null as string | null,
+  linkedin: 'https://www.linkedin.com/in/lukehallett' as string | null,
   facebook: 'https://www.facebook.com/luke.t.hallett' as string | null,
   instagram: 'https://www.instagram.com/lhallett99' as string | null,
   github: 'https://github.com/lhallett' as string | null,

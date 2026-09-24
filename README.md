@@ -50,6 +50,6 @@ This checks mobile/desktop overflow, automated WCAG A/AA rules in light/dark the
 
 ## Content and release
 
-See [authoring](docs/authoring.md), [discovery](docs/discovery.md), and [publication review](docs/publication-review.md). The site intentionally uses `noindex` while career placeholders remain. See [search and sharing metadata](docs/seo.md) for structured data, indexing controls, and sitemap behavior. No GitHub URL, contact address, résumé, or employment history is guessed.
+See [authoring](docs/authoring.md), [discovery](docs/discovery.md), and [publication review](docs/publication-review.md). The approved public site is indexable; preview builds and the 404 remain noindex. See [search and sharing metadata](docs/seo.md) for structured data, indexing controls, and sitemap behavior. No GitHub URL, contact address, résumé, or employment history is guessed.
 
 GitHub Pages serves `site/dist/` independently of home infrastructure. The workflow supports both the project URL and the intended custom domain. Career content, contact links, and the repository license remain owner decisions; they do not block the initial public draft. See [deployment](docs/deployment.md) for DNS and rollback details.

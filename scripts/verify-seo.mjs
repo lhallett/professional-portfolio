@@ -46,7 +46,7 @@ for (const file of pages) {
   const graph = json['@graph'];
   const person = graph.find(node => node['@type'] === 'Person');
   assert.equal(person.name, 'Luke Hallett');
-  assert.deepEqual(person.sameAs, ['https://github.com/lhallett', 'https://www.facebook.com/luke.t.hallett', 'https://www.instagram.com/lhallett99']);
+  assert.deepEqual(person.sameAs, ['https://github.com/lhallett', 'https://www.linkedin.com/in/lukehallett', 'https://www.facebook.com/luke.t.hallett', 'https://www.instagram.com/lhallett99']);
   for (const field of ['jobTitle', 'worksFor', 'alumniOf', 'award']) assert.equal(person[field], undefined);
   const website = graph.find(node => node['@type'] === 'WebSite');
   assert.equal(website.url, absolute('/'));

@@ -11,7 +11,7 @@ The portfolio uses GitHub Pages, independently of home infrastructure. The publi
 
 GitHub Actions reads the Pages hostname/base path and uses HTTPS for canonical and sharing URLs, including while a new domain certificate is provisioning. The same source supports the initial project URL and a later custom domain. It pins article code links to the deployed commit. Builds reject a dirty checkout or mismatched revision when source links are enabled. No deploy credentials are stored in the repository: the workflow uses GitHub's scoped token and deployment identity.
 
-The site currently retains `noindex, follow` for the career-content draft. The repository and site are public; this metadata only requests exclusion from search engines.
+The owner authorized indexing. Main deployments are indexable by default; pull-request and default local builds remain noindex. Set the Actions variable `PORTFOLIO_INDEXING=false` and redeploy to pause indexing.
 
 ## Custom domain
 
