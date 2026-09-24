@@ -8,12 +8,17 @@ export const profile = {
   ],
   "experience": [
     {
-      "employer": "Adobe",
-      "focus": "Customer engineering and technical leadership",
-      "description": "My experience at Adobe spans customer engineering, engineering services, and internal business applications. I worked across teams to investigate customer issues, coordinate engineering requests, and develop internal training. I also led a data engineering team and supported customer projects. My product experience includes Adobe Experience Platform and Adobe Journey Optimizer."
+      "employer": "SalesMadeEZ",
+      "focus": "Senior full stack engineer",
+      "description": "My work at SalesMadeEZ includes designing and developing a Java and Spring SaaS application. I translate business requirements into relational data models and application services, with hands-on responsibility for implementation and production readiness."
     },
     {
-      "employer": "Energy Solutions",
+      "employer": "Adobe",
+      "focus": "Customer engineering and technical leadership",
+      "description": "My experience at Adobe spans customer engineering, engineering services, and internal business applications. I developed customer data integrations and translated business requirements into implementation approaches. I also investigated customer issues, coordinated engineering requests, developed internal training, and led a data engineering team. My product experience includes Adobe Experience Platform and Adobe Journey Optimizer."
+    },
+    {
+      "employer": "EnergySolutions",
       "focus": "Enterprise application development",
       "description": "As a lead Oracle developer, I helped deliver and maintain enterprise business applications. My responsibilities included development and deployment standards, application integrations, and translating business priorities into technical work."
     },
@@ -26,7 +31,7 @@ export const profile = {
   "technicalFocus": [
     "Enterprise application design and integration",
     "Java, SQL, Python, JavaScript, and .NET",
-    "Relational databases, data platforms, and cloud services",
+    "Relational data modeling, SQL query tuning, data platforms, and cloud services",
     "Engineering standards, technical leadership, and customer problem-solving"
   ],
   resume: null as string | null,
