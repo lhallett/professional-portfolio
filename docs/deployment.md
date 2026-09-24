@@ -15,7 +15,7 @@ The site currently retains `noindex, follow` for the career-content draft. The r
 
 ## Custom domain
 
-Permanent domain: `luke.hallettdevlabs.com`. The owner configured the Pages custom domain and Cloudflare DNS-only CNAME to `lhallett.github.io`; public DNS resolution was verified on 2026-09-24 UTC. The HTTPS endpoint returns successfully with a valid certificate. Enforce HTTPS remains an owner-controlled Pages setting. The initial project URL was `https://lhallett.github.io/professional-portfolio/`.
+Permanent domain: `luke.hallettdevlabs.com`. The owner configured the Pages custom domain and Cloudflare DNS-only CNAME to `lhallett.github.io`; public DNS resolution was verified on 2026-09-24 UTC. The HTTPS endpoint returns successfully with a valid certificate. The owner has enabled Enforce HTTPS. The initial project URL was `https://lhallett.github.io/professional-portfolio/`.
 
 To connect the intended domain, first add it in repository Settings → Pages. Then create a DNS-only CNAME for `luke` pointing to `lhallett.github.io`. Do not include the repository name in the CNAME target. Enable Enforce HTTPS after GitHub provisions the certificate, and rerun the workflow so links use the new root path. Do not replace an existing DNS record without reviewing its owner/purpose.
 

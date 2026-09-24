@@ -24,7 +24,7 @@ This metadata supports understanding and eligibility, not guaranteed indexing, c
 
 `npm run verify` validates metadata alongside the site and example checks. `scripts/verify-seo.mjs` checks canonical and sharing URLs, actual image assets, unique titles/descriptions, structured-data relationships, authorship, draft/production indexing behavior, sitemap membership, and 404 exclusions. Both root-domain and project-path builds are tested locally. These are project assertions, not an external Rich Results certification.
 
-After the final domain is connected and indexing is enabled, verify ownership in Google Search Console and Bing Webmaster Tools, submit `/sitemap.xml`, and inspect key URLs. Use Google's Rich Results Test or Schema.org validator for external validation. These accounts are not connected or modified by the metadata implementation. Fill in verified career details and LinkedIn before extending Person properties.
+The owner confirmed Google Search Console is set up and Bing Webmaster Tools is connected by importing the Google Search Console property. After indexing is enabled, submit `/sitemap.xml` and inspect key URLs. Use Google's Rich Results Test or Schema.org validator for external validation. These accounts are not connected or modified by the metadata implementation. Fill in verified career details and LinkedIn before extending Person properties.
 
 ## Primary references
 

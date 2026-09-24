@@ -16,6 +16,6 @@ The owner supplied GA4 Measurement ID `G-D99PMKBL00` for this portfolio. It is a
 
 Open the live site and inspect the browser Network panel for `gtag/js?id=G-D99PMKBL00` and a GA4 collection request using `tid=G-D99PMKBL00` and `en=page_view`. The stream owner can confirm activity in Analytics Realtime. Browser blockers may prevent requests. Network acceptance is not proof that a report has finished processing.
 
-The implementation does not configure Search Console, Google Ads, Google signals, consent-management services, or Analytics account settings. The Search Console verification tag is still needed if the owner chooses HTML-tag verification.
+The implementation does not configure Search Console, Google Ads, Google signals, consent-management services, or Analytics account settings. The owner has separately completed Search Console setup and imported it into Bing Webmaster Tools.
 
 [Google's page-view guidance](https://developers.google.com/analytics/devguides/collection/ga4/views) and [Google's privacy configuration](https://developers.google.com/tag-platform/security/guides/privacy).
