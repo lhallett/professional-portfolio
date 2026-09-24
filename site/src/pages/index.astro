@@ -8,10 +8,10 @@ import { profile } from '../data/profile';
 <Layout kind="profile">
   <section class="hero">
     <div>
-      <p class="eyebrow"><span class="dot"></span> A professional profile & an engineering notebook</p>
+      <p class="eyebrow"><span class="dot"></span> Independent consulting & software development</p>
       <h1>Thoughtful systems.<br /><em>Practical engineering.</em></h1>
       <p class="intro">{profile.positioning}</p>
-      <div class="actions"><a class="button primary" href={sitePath('/library/')}>Explore the library <span aria-hidden="true">↗</span></a><a class="text-link" href="#experience">Professional background <span aria-hidden="true">↓</span></a></div>
+      <div class="actions"><a class="button primary" href="#consulting">Explore consulting services <span aria-hidden="true">↓</span></a><a class="text-link" href={sitePath('/library/')}>See how I work <span aria-hidden="true">↗</span></a></div>
     </div>
     <aside class="notebook" aria-label="Inside this portfolio">
       <div class="notebook-top"><span class="eyebrow">From idea to implementation</span><span aria-hidden="true">↗</span></div>
@@ -19,23 +19,34 @@ import { profile } from '../data/profile';
       <div class="notebook-bottom"><span class="dot"></span> Explanations connected to runnable code</div>
     </aside>
   </section>
-  <div class="chapter-bar"><span>01 / Engineering Library</span><span>Decisions worth keeping</span></div>
+  <div class="chapter-bar" id="consulting"><span>01 / Independent consulting</span><span>From requirements to working software</span></div>
+  <section class="section consulting" aria-labelledby="consulting-heading">
+    <div class="consulting-intro"><h2 id="consulting-heading">Practical help for your next technical decision.</h2><p>I offer independent consulting and freelance development for teams building business applications, connecting data, or improving existing systems.</p></div>
+    <div class="service-grid">
+      <article class="service-card"><span class="eyebrow">Build</span><h3>Application development</h3><p>Turn business requirements into application features, backend services, and integrations that fit the way your team works.</p><p class="service-detail">Project focus: application design, Java and Spring development, APIs, and database-backed services.</p></article>
+      <article class="service-card"><span class="eyebrow">Connect</span><h3>Data & integration</h3><p>Connect systems and shape data so it can support useful workflows, reporting, and customer experiences.</p><p class="service-detail">Project focus: relational data modeling, SQL query tuning, data flows, and customer data integrations.</p></article>
+      <article class="service-card"><span class="eyebrow">Evaluate</span><h3>Architecture & modernization</h3><p>Review an existing application or a proposed design, identify the tradeoffs, and define practical next steps.</p><p class="service-detail">Project focus: architecture reviews, integration boundaries, maintainability, and modernization planning.</p></article>
+    </div>
+    <div class="consulting-next"><div><h3>Start with the problem.</h3><p>Share what you’re trying to accomplish, what exists today, and where you need help. We can discuss the fit and define the scope, deliverables, and approach together.</p></div>{profile.linkedin && <a class="button primary" href={profile.linkedin}>Discuss a project on LinkedIn <span aria-hidden="true">↗</span></a>}</div>
+    <p class="consulting-proof">For a look at my technical approach, explore the <a href={sitePath('/library/thermostat-mobile/')}>Thermostat mobile example</a> or read my <a href="#experience">professional background</a>.</p>
+  </section>
+  <div class="chapter-bar"><span>02 / Engineering Library</span><span>Decisions worth keeping</span></div>
   <section class="section feature-grid">
     <div><p class="eyebrow">Beyond the finished interface</p><h2>The how.<br />And the why.</h2><p class="muted">Small, focused references that connect a real application decision to an understandable example.</p><a class="text-link" href={sitePath('/library/')}>View the engineering library →</a></div>
     <a class="feature-card" href={sitePath('/library/thermostat-mobile/')}><div class="card-meta"><span>Mobile experiences</span><span class="badge">Working Example</span></div><div class="mini-flow" aria-hidden="true"><span>Browser</span><i>→</i><span>Network</span><i>↘</i><span>Saved reading</span></div><h3>A mobile experience that tells you when data is old.</h3><p>Thermostat’s PWA model, offline boundaries, and a runnable example of fresh versus saved readings.</p><div class="card-bottom"><span>Thermostat · PWA · Offline UX</span><span aria-hidden="true">↗</span></div></a>
   </section>
-  <div class="chapter-bar"><span>02 / Selected projects</span><span>Application context lives in Atlas</span></div>
+  <div class="chapter-bar"><span>03 / Selected projects</span><span>Application context lives in Atlas</span></div>
   <section class="section projects"><div><h2>Connected work.</h2><p class="muted">The library explains reusable ideas. Atlas is the destination for application discovery and the deployed-system showcase.</p></div><article class="project"><span class="index">01</span><div><h3>Thermostat</h3><p>Monitoring interfaces, a mobile PWA, and explicit offline states.</p><a href={sitePath('/library/thermostat-mobile/')}>Read the mobile model →</a><br /><a href="https://atlas.hallettdevlabs.com/applications/thermostat/">Thermostat in Atlas ↗</a></div></article><article class="project"><span class="index">02</span><div><h3>Atlas</h3><p>Explore application context in the separate showcase.</p><a href="https://atlas.hallettdevlabs.com">Visit Atlas ↗</a></div></article></section>
   <section class="section about" aria-labelledby="about-heading">
     <Image src={portrait} alt="Luke Hallett" width={240} height={240} widths={[240, 480]} sizes="240px" format="webp" loading="lazy" />
     <div><p class="eyebrow">About Luke</p><h2 id="about-heading">The person behind the work.</h2>{profile.about.map(paragraph => <p>{paragraph}</p>)}</div>
   </section>
-  <div class="chapter-bar" id="experience"><span>03 / Professional background</span><span>Selected experience</span></div>
+  <div class="chapter-bar" id="experience"><span>04 / Professional background</span><span>Selected experience</span></div>
   <section class="section experience" aria-labelledby="experience-heading">
     <div><h2 id="experience-heading">Experience & impact.</h2>
       <div class="technical-focus"><h3>Technical focus</h3><ul>{profile.technicalFocus.map(item => <li>{item}</li>)}</ul></div>
     </div>
     <div class="career-list">{profile.experience.map(item => <article class="career-entry"><h3>{item.employer}</h3><p class="career-focus">{item.focus}</p><p>{item.description}</p></article>)}</div>
   </section>
-  <section class="contact section" id="contact"><div><p class="eyebrow">Start a conversation</p><h2>Let’s connect.</h2><p>For professional conversations and questions about the work.</p></div><div class="contact-links">{profile.linkedin ? <a href={profile.linkedin}>LinkedIn ↗</a> : null}{profile.facebook && <a href={profile.facebook}>Facebook ↗</a>}{profile.instagram && <a href={profile.instagram}>Instagram ↗</a>}{profile.github ? <a href={profile.github}>GitHub ↗</a> : <span>GitHub <small>Awaiting profile URL</small></span>}</div></section>
+  <section class="contact section" id="contact"><div><p class="eyebrow">Start a conversation</p><h2>Let’s connect.</h2><p>For consulting inquiries, connect with me on LinkedIn and include a brief description of your project.</p></div><div class="contact-links">{profile.linkedin ? <a href={profile.linkedin}>LinkedIn · Consulting inquiries ↗</a> : null}{profile.facebook && <a href={profile.facebook}>Facebook ↗</a>}{profile.instagram && <a href={profile.instagram}>Instagram ↗</a>}{profile.github ? <a href={profile.github}>GitHub ↗</a> : <span>GitHub <small>Awaiting profile URL</small></span>}</div></section>
 </Layout>

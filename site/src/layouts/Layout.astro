@@ -31,6 +31,7 @@ const library = Astro.url.pathname.startsWith(sitePath('/library'));
       <a class="brand" href={sitePath('/')} aria-label="Luke Hallett home"><span class="monogram" aria-hidden="true">lh.</span><span>Luke Hallett</span></a>
       <nav aria-label="Main navigation">
         <a href={sitePath('/')} aria-current={!library && Astro.url.pathname === sitePath('/') ? 'page' : undefined}>Overview</a>
+        <a href={sitePath('/#consulting')}>Consulting</a>
         <a href={sitePath('/library/')} aria-current={library ? 'page' : undefined}>Engineering Library</a>
         <a href={sitePath('/#contact')}>Contact</a>
         <button id="theme" aria-label="Switch color theme" title="Switch color theme" hidden>◐</button>

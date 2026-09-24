@@ -33,3 +33,7 @@ The owner confirmed Google Search Console is set up and Bing Webmaster Tools is 
 - [Google: structured-data policies](https://developers.google.com/search/docs/appearance/structured-data/sd-policies)
 - [Google: robots.txt](https://developers.google.com/search/docs/crawling-indexing/robots/intro)
 - [Open Graph protocol](https://ogp.me/)
+
+## Search account status
+
+The owner reported sitemap submission to Google and Bing and an indexing request. On 2026-09-24, the owner confirmed that Search Console shows the page. This is owner-reported status, not an independent confirmation of rankings or every URL being indexed.
