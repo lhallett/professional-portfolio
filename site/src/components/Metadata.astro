@@ -23,6 +23,7 @@ const siteId = `${home}#website`;
 const image = { '@type': 'ImageObject', url: imageUrl, width: 800, height: 800, caption: 'Luke Hallett' };
 const person = {
   '@type': 'Person', '@id': personId, name: profile.name, url: home,
+  description: profile.positioning,
   image, sameAs: [profile.github, profile.linkedin].filter(Boolean),
 };
 const graph: Record<string, unknown>[] = [

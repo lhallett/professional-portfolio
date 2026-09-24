@@ -1,6 +1,6 @@
 # Luke Hallett · professional-portfolio
 
-A professional front door and an Engineering Library for `luke.hallettdevlabs.com`. Career content is explicitly pending source material. GitHub Actions verifies and deploys the static site on pushes to `main`; see [deployment and iteration](docs/deployment.md).
+A professional front door and an Engineering Library for `luke.hallettdevlabs.com`. Selected career content is owner-approved; the source résumé and private review notes are not included. GitHub Actions verifies and deploys the static site on pushes to `main`; see [deployment and iteration](docs/deployment.md).
 
 Permanent address: [luke.hallettdevlabs.com](https://luke.hallettdevlabs.com/). Custom-domain DNS is connected and HTTPS is available; Enforce HTTPS is enabled in GitHub Pages.
 

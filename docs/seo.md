@@ -2,9 +2,9 @@
 
 ## Current policy
 
-The owner requested that the draft stay out of search until the résumé and introduction are ready. Pages render `noindex, follow`; the 404 always remains noindex. The sitemap intentionally contains no URLs while indexing is disabled. Crawling stays allowed so engines can see noindex. Public availability and search indexing are separate.
+The owner approved the sanitized public profile while explicitly retaining noindex. Indexing requires separate approval. Pages render `noindex, follow`; the 404 always remains noindex. The sitemap intentionally contains no URLs while indexing is disabled. Crawling stays allowed so engines can see noindex. Public availability and search indexing are separate.
 
-When the profile is ready, set the repository Actions variable `PORTFOLIO_INDEXING` to `true` and rerun the deployment workflow. Do not change it simply to test a build. Future entries come from the same content collection as the sitemap, which excludes the 404 and downloadable source files. The source downloads are public artifacts; the site's noindex is not a privacy control for repository content or downloads.
+When the owner authorizes indexing, set the repository Actions variable `PORTFOLIO_INDEXING` to `true` and rerun the deployment workflow. Do not change it simply to test a build. Future entries come from the same content collection as the sitemap, which excludes the 404 and downloadable source files. The source downloads are public artifacts; the site's noindex is not a privacy control for repository content or downloads.
 
 The initial GitHub project URL serves robots.txt under `/professional-portfolio/`; search engines consult `/robots.txt` at the origin root, so that project-scoped file is not an effective root crawler policy. Page-level noindex applies independently. Once the custom domain is connected, the generated robots.txt is at the correct root. No root-domain settings for other GitHub projects were changed.
 
