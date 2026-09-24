@@ -2,7 +2,7 @@ import { sitePath } from './links';
 
 // Explicit opt-in after the professional profile is ready. Development remains noindex.
 export const indexingEnabled = import.meta.env.PROD && import.meta.env.PORTFOLIO_INDEXING === 'true';
-export const siteDescription = 'Luke Hallett’s professional portfolio and Engineering Library: application design decisions, practical tradeoffs, and independently runnable examples.';
+export const siteDescription = 'Software engineer and technical leader with experience in enterprise applications, data platforms, and customer engineering. Explore Luke Hallett’s work.';
 export const libraryDescription = 'Explore Luke Hallett’s Engineering Library: source-grounded explanations, architecture tradeoffs, and runnable examples for application development.';
 
 export function absoluteUrl(path: string, site: URL | undefined) {
