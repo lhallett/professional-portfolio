@@ -1,0 +1,23 @@
+---
+// Measurement IDs are public identifiers, not credentials.
+const measurementId = 'G-D99PMKBL00';
+const enabled = import.meta.env.PROD;
+---
+{enabled && <script is:inline define:vars={{ measurementId }}>
+  // Local previews and copied deployments must not pollute the live property's data.
+  if (window.location.hostname === 'luke.hallettdevlabs.com') {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    // config sends the page_view; do not send a second manual page_view.
+    window.gtag('config', measurementId, {
+      allow_google_signals: false,
+      allow_ad_personalization_signals: false,
+      cookie_domain: window.location.hostname,
+    });
+    const tag = document.createElement('script');
+    tag.async = true;
+    tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(measurementId);
+    document.head.appendChild(tag);
+  }
+</script>}

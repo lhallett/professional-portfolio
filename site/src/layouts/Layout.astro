@@ -2,6 +2,7 @@
 import { sitePath } from '../lib/links';
 import '../styles/global.css';
 import Metadata from '../components/Metadata.astro';
+import Analytics from '../components/Analytics.astro';
 import { siteDescription } from '../lib/seo';
 interface Props {
   title?: string; description?: string;
@@ -17,6 +18,7 @@ const library = Astro.url.pathname.startsWith(sitePath('/library'));
   <head>
     <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <Metadata title={pageTitle} description={description} kind={kind} noindex={noindex} article={article} />
+    <Analytics />
     <meta name="theme-color" content="#f6f5f0" />
     <link rel="icon" href={sitePath('/favicon.svg')} type="image/svg+xml" />
     <script is:inline>

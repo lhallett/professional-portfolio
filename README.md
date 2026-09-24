@@ -2,7 +2,7 @@
 
 A professional front door and an Engineering Library for `luke.hallettdevlabs.com`. Career content is explicitly pending source material. GitHub Actions verifies and deploys the static site on pushes to `main`; see [deployment and iteration](docs/deployment.md).
 
-Permanent address: [luke.hallettdevlabs.com](https://luke.hallettdevlabs.com/). Custom-domain DNS is connected; GitHub HTTPS certificate provisioning is pending.
+Permanent address: [luke.hallettdevlabs.com](https://luke.hallettdevlabs.com/). Custom-domain DNS is connected and HTTPS is available; the owner can enable Enforce HTTPS in GitHub Pages.
 
 ## Structure and ownership
 

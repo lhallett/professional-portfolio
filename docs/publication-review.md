@@ -12,4 +12,4 @@ Before publication, resolve:
 - Custom-domain DNS configuration. GitHub Pages deployment is authorized; the initial draft can use the project URL while DNS is connected.
 - Current Thermostat source review before extracting authentication or making claims about current deployments.
 
-External site destinations include the confirmed GitHub profile/repository and the user-supplied Atlas domain; the Thermostat route and identifier were verified in the public showcase source. The web fetch tool could not confirm live availability. Its availability is not required for rendering. No private APIs, analytics, embedded feeds, remote fonts, or publication service are used.
+External site destinations include the confirmed GitHub profile/repository and the user-supplied Atlas domain; the Thermostat route and identifier were verified in the public showcase source. The web fetch tool could not confirm live availability. Its availability is not required for rendering. No private APIs, embedded feeds, remote fonts, or publishing service are used. Google Analytics is configured with the owner-supplied Measurement ID; see analytics.md for its scope.

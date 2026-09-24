@@ -9,13 +9,13 @@ The portfolio uses GitHub Pages, independently of home infrastructure. The publi
 3. Commit and push to `main`.
 4. The Verify and deploy portfolio workflow validates the source and deploys `site/dist/`. Pull requests validate without deploying.
 
-GitHub Actions reads the Pages hostname/base path and uses HTTPS for canonical and sharing URLs, including while a new domain certificate is provisioning. This means so the same source supports the initial project URL and a later custom domain. It pins article code links to the deployed commit. Builds reject a dirty checkout or mismatched revision when source links are enabled. No deploy credentials are stored in the repository: the workflow uses GitHub's scoped token and deployment identity.
+GitHub Actions reads the Pages hostname/base path and uses HTTPS for canonical and sharing URLs, including while a new domain certificate is provisioning. The same source supports the initial project URL and a later custom domain. It pins article code links to the deployed commit. Builds reject a dirty checkout or mismatched revision when source links are enabled. No deploy credentials are stored in the repository: the workflow uses GitHub's scoped token and deployment identity.
 
 The site currently retains `noindex, follow` for the career-content draft. The repository and site are public; this metadata only requests exclusion from search engines.
 
 ## Custom domain
 
-Permanent domain: `luke.hallettdevlabs.com`. The owner configured the Pages custom domain and Cloudflare DNS-only CNAME to `lhallett.github.io`; public DNS resolution was verified on 2026-09-24 UTC. GitHub certificate provisioning and Enforce HTTPS are pending. The initial project URL was `https://lhallett.github.io/professional-portfolio/`.
+Permanent domain: `luke.hallettdevlabs.com`. The owner configured the Pages custom domain and Cloudflare DNS-only CNAME to `lhallett.github.io`; public DNS resolution was verified on 2026-09-24 UTC. The HTTPS endpoint returns successfully with a valid certificate. Enforce HTTPS remains an owner-controlled Pages setting. The initial project URL was `https://lhallett.github.io/professional-portfolio/`.
 
 To connect the intended domain, first add it in repository Settings → Pages. Then create a DNS-only CNAME for `luke` pointing to `lhallett.github.io`. Do not include the repository name in the CNAME target. Enable Enforce HTTPS after GitHub provisions the certificate, and rerun the workflow so links use the new root path. Do not replace an existing DNS record without reviewing its owner/purpose.
 
