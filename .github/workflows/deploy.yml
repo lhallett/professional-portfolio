@@ -36,7 +36,7 @@ jobs:
       - name: Verify and build matching source
         env:
           PORTFOLIO_INDEXING: ${{ vars.PORTFOLIO_INDEXING || 'false' }}
-          PORTFOLIO_SITE: ${{ steps.pages.outputs.origin }}
+          PORTFOLIO_SITE: https://${{ steps.pages.outputs.host }}
           PORTFOLIO_BASE: ${{ steps.pages.outputs.base_path }}
           PORTFOLIO_REPOSITORY: https://github.com/${{ github.repository }}
           PORTFOLIO_REVISION: ${{ github.sha }}
