@@ -37,5 +37,5 @@ import { profile } from '../data/profile';
     </div>
     <div class="career-list">{profile.experience.map(item => <article class="career-entry"><h3>{item.employer}</h3><p class="career-focus">{item.focus}</p><p>{item.description}</p></article>)}</div>
   </section>
-  <section class="contact section" id="contact"><div><p class="eyebrow">Start a conversation</p><h2>Let’s connect.</h2><p>For professional conversations and questions about the work.</p></div><div class="contact-links">{profile.email ? <a href={`mailto:${profile.email}`}>Email ↗</a> : null}{profile.linkedin ? <a href={profile.linkedin}>LinkedIn ↗</a> : null}{profile.github ? <a href={profile.github}>GitHub ↗</a> : <span>GitHub <small>Awaiting profile URL</small></span>}</div></section>
+  <section class="contact section" id="contact"><div><p class="eyebrow">Start a conversation</p><h2>Let’s connect.</h2><p>For professional conversations and questions about the work.</p></div><div class="contact-links">{profile.linkedin ? <a href={profile.linkedin}>LinkedIn ↗</a> : null}{profile.facebook && <a href={profile.facebook}>Facebook ↗</a>}{profile.instagram && <a href={profile.instagram}>Instagram ↗</a>}{profile.github ? <a href={profile.github}>GitHub ↗</a> : <span>GitHub <small>Awaiting profile URL</small></span>}</div></section>
 </Layout>

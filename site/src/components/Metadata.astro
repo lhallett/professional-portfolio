@@ -24,7 +24,7 @@ const image = { '@type': 'ImageObject', url: imageUrl, width: 800, height: 800, 
 const person = {
   '@type': 'Person', '@id': personId, name: profile.name, url: home,
   description: profile.positioning,
-  image, sameAs: [profile.github, profile.linkedin].filter(Boolean),
+  image, sameAs: [profile.github, profile.linkedin, profile.facebook, profile.instagram].filter(Boolean),
 };
 const graph: Record<string, unknown>[] = [
   person,
