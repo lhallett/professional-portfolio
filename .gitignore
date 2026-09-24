@@ -6,3 +6,4 @@ site/.astro/
 !.env.example
 .DS_Store
 .playwright/
+output/

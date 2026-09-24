@@ -1,0 +1,78 @@
+---
+import { getImage } from 'astro:assets';
+import portrait from '../assets/luke-hallett.png';
+import { profile } from '../data/profile';
+import { absoluteUrl, indexingEnabled, serializeJsonLd, siteDescription } from '../lib/seo';
+
+interface Props {
+  title: string;
+  description: string;
+  kind?: 'profile' | 'collection' | 'article' | 'page';
+  noindex?: boolean;
+  article?: { category: string; tags: string[]; reviewed: string };
+}
+const { title, description, kind = 'page', noindex = false, article } = Astro.props;
+const canonical = new URL(Astro.url.pathname.replace(/\/404\/?$/, '/404.html'), Astro.site).href;
+const home = absoluteUrl('/', Astro.site);
+const library = absoluteUrl('/library/', Astro.site);
+const photo = await getImage({ src: portrait, width: 800, format: 'jpg', quality: 85 });
+const imageUrl = new URL(photo.src, Astro.site).href;
+const pageId = `${canonical}#webpage`;
+const personId = `${home}#person`;
+const siteId = `${home}#website`;
+const image = { '@type': 'ImageObject', url: imageUrl, width: 800, height: 800, caption: 'Luke Hallett' };
+const person = {
+  '@type': 'Person', '@id': personId, name: profile.name, url: home,
+  image, sameAs: [profile.github, profile.linkedin].filter(Boolean),
+};
+const graph: Record<string, unknown>[] = [
+  person,
+  { '@type': 'WebSite', '@id': siteId, name: profile.name, url: home, description: siteDescription, inLanguage: 'en', publisher: { '@id': personId } },
+  {
+    '@type': kind === 'profile' ? 'ProfilePage' : kind === 'collection' ? 'CollectionPage' : 'WebPage',
+    '@id': pageId, url: canonical, name: title, description, inLanguage: 'en',
+    isPartOf: { '@id': siteId },
+    ...(kind === 'profile' ? { mainEntity: { '@id': personId }, primaryImageOfPage: image } : {}),
+    ...(kind === 'article' ? { mainEntity: { '@id': `${canonical}#article` }, lastReviewed: article?.reviewed } : {}),
+    ...(kind === 'collection' || kind === 'article' ? { breadcrumb: { '@id': `${canonical}#breadcrumbs` } } : {}),
+  },
+];
+if (kind === 'collection' || kind === 'article') {
+  const crumbs = [ { name: 'Luke Hallett', item: home }, { name: 'Engineering Library', item: library } ];
+  if (kind === 'article') crumbs.push({ name: title.replace(' · Luke Hallett', ''), item: canonical });
+  graph.push({ '@type': 'BreadcrumbList', '@id': `${canonical}#breadcrumbs`, itemListElement: crumbs.map((crumb, index) => ({ '@type': 'ListItem', position: index + 1, ...crumb })) });
+}
+if (kind === 'article' && article) {
+  graph.push({
+    '@type': 'TechArticle', '@id': `${canonical}#article`,
+    headline: title.replace(' · Luke Hallett', ''), description, url: canonical,
+    mainEntityOfPage: { '@id': pageId }, author: { '@id': personId },
+    publisher: { '@id': personId }, inLanguage: 'en',
+    articleSection: article.category, keywords: article.tags,
+  });
+}
+---
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="author" content={profile.name} />
+<meta name="robots" content={indexingEnabled && !noindex ? 'index, follow, max-image-preview:large' : 'noindex, follow'} />
+<link rel="canonical" href={canonical} />
+<link rel="sitemap" type="application/xml" href={absoluteUrl('/sitemap.xml', Astro.site)} />
+<meta property="og:site_name" content={profile.name} />
+<meta property="og:type" content={kind === 'article' ? 'article' : 'website'} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:locale" content="en_US" />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="800" />
+<meta property="og:image:height" content="800" />
+<meta property="og:image:alt" content="Portrait of Luke Hallett" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
+<meta name="twitter:image:alt" content="Portrait of Luke Hallett" />
+{kind === 'article' && article && <><meta property="article:author" content={home} /><meta property="article:section" content={article.category} />{article.tags.map(tag => <meta property="article:tag" content={tag} />)}</>}
+{!noindex && <script type="application/ld+json" set:html={serializeJsonLd({ '@context': 'https://schema.org', '@graph': graph })} />}

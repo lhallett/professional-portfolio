@@ -1,9 +1,11 @@
 ---
 import { sitePath } from '../lib/links';
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import portrait from '../assets/luke-hallett.png';
 import { profile } from '../data/profile';
 ---
-<Layout>
+<Layout kind="profile">
   <section class="hero">
     <div>
       <p class="eyebrow"><span class="dot"></span> A professional profile & an engineering notebook</p>
@@ -25,6 +27,10 @@ import { profile } from '../data/profile';
   </section>
   <div class="chapter-bar"><span>02 / Selected projects</span><span>Application context lives in Atlas</span></div>
   <section class="section projects"><div><h2>Connected work.</h2><p class="muted">The library explains reusable ideas. Atlas is the destination for application discovery and the deployed-system showcase.</p></div><article class="project"><span class="index">01</span><div><h3>Thermostat</h3><p>Monitoring interfaces, a mobile PWA, and explicit offline states.</p><a href={sitePath('/library/thermostat-mobile/')}>Read the mobile model →</a><br /><a href="https://atlas.hallettdevlabs.com/applications/thermostat/">Thermostat in Atlas ↗</a></div></article><article class="project"><span class="index">02</span><div><h3>Atlas</h3><p>Explore application context in the separate showcase.</p><a href="https://atlas.hallettdevlabs.com">Visit Atlas ↗</a></div></article></section>
+  <section class="section about" aria-labelledby="about-heading">
+    <Image src={portrait} alt="Luke Hallett" width={240} height={240} widths={[240, 480]} sizes="240px" format="webp" loading="lazy" />
+    <div><p class="eyebrow">About Luke</p><h2 id="about-heading">The person behind the work.</h2><p>I’m Luke Hallett. This portfolio brings together my professional profile and an engineering library of explanations, design decisions, and working examples.</p><p class="muted">Explore the library for the reasoning behind the code, or visit Atlas for application context.</p></div>
+  </section>
   <div class="chapter-bar" id="experience"><span>03 / Professional background</span><span>Career material pending</span></div>
   <section class="section experience"><div><h2>Experience & impact.</h2><p class="muted">Selected experience, accomplishments, and career context will appear here after review of the source résumé.</p></div><div class="placeholder"><span class="eyebrow">Content placeholder</span><h3>Professional experience</h3><p>Employer, role, dates, responsibilities, and verified outcomes to be supplied.</p>{profile.resume ? <a class="button" href={sitePath(profile.resume)} download>Download résumé ↓</a> : <span class="pending">Résumé download · awaiting source document</span>}</div></section>
   <section class="contact section" id="contact"><div><p class="eyebrow">Start a conversation</p><h2>Let’s connect.</h2><p>For professional conversations and questions about the work.</p></div><div class="contact-links">{profile.email ? <a href={`mailto:${profile.email}`}>Email ↗</a> : <span>Email <small>Awaiting preferred address</small></span>}{profile.linkedin ? <a href={profile.linkedin}>LinkedIn ↗</a> : <span>LinkedIn <small>Awaiting profile URL</small></span>}{profile.github ? <a href={profile.github}>GitHub ↗</a> : <span>GitHub <small>Awaiting profile URL</small></span>}</div></section>

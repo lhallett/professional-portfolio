@@ -4,6 +4,6 @@ export const profile = {
   positioning: null as string | null,
   resume: null as string | null,
   linkedin: null as string | null,
-  github: null as string | null,
+  github: 'https://github.com/lhallett' as string | null,
   email: null as string | null,
 };

@@ -1,10 +1,11 @@
 ---
 import { sitePath } from '../../lib/links';
+import { libraryDescription } from '../../lib/seo';
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 const entries = await getCollection('library');
 ---
-<Layout title="Engineering Library">
+<Layout title="Engineering Library" description={libraryDescription} kind="collection">
   <section class="page-heading"><p class="eyebrow">Notes you can build with</p><h1>Engineering <em>Library.</em></h1><p class="intro">The problem, the tradeoffs, and a working example.<br />A small collection of decisions made explicit.</p></section>
   <div class="chapter-bar"><span>01 entry / Mobile experiences</span><span>Curated, independently runnable examples</span></div>
   <section class="section library-list" aria-label="Library entries">{entries.map(entry => <a class="feature-card" href={sitePath(`/library/${entry.id}/`)}><div class="card-meta"><span>{entry.data.category}</span><span class="badge">{entry.data.maturity}</span></div><h2>{entry.data.title}</h2><p>{entry.data.description}</p><div class="card-bottom"><span>{entry.data.tags.join(' · ')}</span><span aria-hidden="true">↗</span></div></a>)}</section>

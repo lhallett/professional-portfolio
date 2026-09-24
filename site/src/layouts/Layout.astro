@@ -1,16 +1,22 @@
 ---
 import { sitePath } from '../lib/links';
 import '../styles/global.css';
-interface Props { title?: string; description?: string; }
-const { title = 'Luke Hallett', description = 'Professional profile and engineering library. Design decisions, working examples, and the reasoning behind them.' } = Astro.props;
+import Metadata from '../components/Metadata.astro';
+import { siteDescription } from '../lib/seo';
+interface Props {
+  title?: string; description?: string;
+  kind?: 'profile' | 'collection' | 'article' | 'page'; noindex?: boolean;
+  article?: { category: string; tags: string[]; reviewed: string };
+}
+const { title = 'Luke Hallett', description = siteDescription, kind = 'page', noindex = false, article } = Astro.props;
+const pageTitle = title === 'Luke Hallett' ? 'Luke Hallett | Professional Portfolio & Engineering Library' : `${title} · Luke Hallett`;
 const library = Astro.url.pathname.startsWith(sitePath('/library'));
 ---
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title === 'Luke Hallett' ? title : `${title} · Luke Hallett`}</title>
-    <meta name="description" content={description} /><meta name="robots" content="noindex, nofollow" />
+    <Metadata title={pageTitle} description={description} kind={kind} noindex={noindex} article={article} />
     <meta name="theme-color" content="#f6f5f0" />
     <link rel="icon" href={sitePath('/favicon.svg')} type="image/svg+xml" />
     <script is:inline>
