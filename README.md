@@ -2,6 +2,8 @@
 
 A professional front door and an Engineering Library for `luke.hallettdevlabs.com`. Career content is explicitly pending source material. GitHub Actions verifies and deploys the static site on pushes to `main`; see [deployment and iteration](docs/deployment.md).
 
+Live draft: [lhallett.github.io/professional-portfolio](https://lhallett.github.io/professional-portfolio/). The intended custom domain is not connected yet.
+
 ## Structure and ownership
 
 - `site/`: static Astro presentation; consumes Markdown from `library/` at build time.
