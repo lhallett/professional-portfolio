@@ -1,6 +1,6 @@
 # Deployment and iteration
 
-The portfolio uses GitHub Pages, independently of home infrastructure. The selected source repository is `lhallett/professional-portfolio`; creation and deployment are pending account access and public-visibility confirmation.
+The portfolio uses GitHub Pages, independently of home infrastructure. The public source repository is `lhallett/professional-portfolio`, created by the owner. The `lukehallett-devlabs` collaborator has write access. GitHub Pages must be enabled by an account with repository administration access before the deployment workflow can run.
 
 ## Normal iteration
 
