@@ -1,11 +1,11 @@
-# Portfolio roadmap
+# Portfolio contact integration
 
-## Current contact approach
+## Current approach
 
-Consulting inquiries use the approved LinkedIn profile. No email address or contact form is published. Consulting copy makes no commitments about hours, start dates, or response times.
+The owner supplied a GHL survey embed for consulting inquiries. The portfolio hosts a dedicated `/contact/` page containing only the survey iframe and GHL's resizing script; the page links to the direct survey and LinkedIn if the embed does not load. The receiving email address and any GHL credentials are absent from the repository. The survey host is `api.adlsys.net`.
 
-## Deferred contact and CRM integration
+The owner reported creating the GHL subaccount, three Opportunity custom fields, a survey, workflow, and pipeline. CRM submission and repeat-submission behavior require an end-to-end check before claiming lead capture is verified. No marketing automation or response-time commitment is represented by the site.
 
-Explore a website contact form backed by GoHighLevel (GHL) for lead collection and CRM follow-up. The owner explicitly deferred implementation on 2026-09-24; no instance, credentials, or integration has been configured.
+## Future changes
 
-When resumed, choose the GHL instance and evaluate a small server-side integration, potentially alongside Atlas or another internal system. Keep credentials and receiving addresses out of browser code. Define spam protection, minimal contact fields, lead routing, data retention, and failure handling before launch. Marketing enrollment and automated messages require separate decisions.
+A first-party backend remains optional. If added later, store credentials server-side and define spam handling, data retention, and failure behavior before replacing the GHL embed.

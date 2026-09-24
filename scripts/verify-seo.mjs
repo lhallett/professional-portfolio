@@ -54,6 +54,7 @@ for (const file of pages) {
   assert.equal(page.url, canonical);
   assert.equal(page.name, title);
   if (route === '/') assert.equal(page['@type'], 'ProfilePage');
+  else if (route === '/contact/') assert.equal(page['@type'], 'WebPage');
   else {
     const crumbs = graph.find(node => node['@type'] === 'BreadcrumbList').itemListElement;
     assert.equal(crumbs.at(-1).item, canonical);

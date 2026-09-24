@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { profile } from '../data/profile';
+const surveyUrl = 'https://api.adlsys.net/widget/survey/5fK0bxZX7LasMVjbM8XH';
+---
+<Layout title="Consulting inquiry" description="Tell Luke Hallett about an application development, data integration, or architecture project through a short consulting inquiry survey.">
+  <section class="page-heading contact-heading">
+    <p class="eyebrow">Independent consulting</p>
+    <h1>Tell me about your project.</h1>
+    <p>Share what you’re building, the challenge you’re facing, and where you could use help. The survey sends your answers to my consulting CRM. I’ll use your email to reply.</p>
+    <p class="muted">Please leave passwords, confidential data, and sensitive customer information out of your message.</p>
+  </section>
+  <div class="survey-wrap">
+    <iframe src={surveyUrl} id="5fK0bxZX7LasMVjbM8XH" title="Consulting project inquiry survey" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" data-cookie-consent="true" data-cookie-consent-provider="auto"></iframe>
+  </div>
+  <p class="contact-alternative">If the survey does not load, <a href={surveyUrl}>open it directly</a>{profile.linkedin && <> or <a href={profile.linkedin}>contact me on LinkedIn</a></>}.</p>
+  <script is:inline src="https://api.adlsys.net/js/form_embed.js"></script>
+</Layout>
